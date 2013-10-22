@@ -51,6 +51,14 @@ public class Config
         return Math.cos(Math.toRadians(theta));
     }
     
+    public static double getDistance(Coordinate pointA, Coordinate pointB)
+    {
+        double x = pointA.getX() - pointB.getX();
+        double y = pointA.getY() - pointB.getY();
+        
+        return Math.sqrt((x*x) + (y*y));
+    }
+    
      /**
      * Gets the button status from the driverstation, 1 - 8 available.
      * @param iChan
