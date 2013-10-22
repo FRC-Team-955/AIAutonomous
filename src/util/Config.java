@@ -25,8 +25,7 @@ public class Config
     public static final int chanEncRightA = 3;
     public static final int chanEncRightB = 4;
     public static final int chanGyro = 5;
-    public static final int chanUltrasonicIn = 6;
-    public static final int chanUltrasonicOut = 6;
+    public static final int chanUltrasonic = 6;
     
     // Ints
     public static final int iPs3Port = 1;
@@ -41,6 +40,16 @@ public class Config
     // Driverstation line
     public static final int stLineFile = 2;
     public static final int stLineAutonomous = 3;
+    
+    public static double sin(double theta)
+    {
+        return Math.sin(Math.toRadians(theta));
+    }
+    
+    public static double cos(double theta)
+    {
+        return Math.cos(Math.toRadians(theta));
+    }
     
      /**
      * Gets the button status from the driverstation, 1 - 8 available.

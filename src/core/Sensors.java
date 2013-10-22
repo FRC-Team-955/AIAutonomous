@@ -6,8 +6,8 @@
 
 package core;
 import util.Config;
+import util.MyUltrasonic;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Ultrasonic;
 import edu.wpi.first.wpilibj.Gyro;
 
 /**
@@ -16,19 +16,18 @@ import edu.wpi.first.wpilibj.Gyro;
  */
 public class Sensors 
 {
-    private Ultrasonic rangeFinder;
+    private MyUltrasonic rangeFinder;
     private Encoder encLeft;
     private Encoder encRight;
     private Gyro gyro;
     
     public Sensors()
     {
-        rangeFinder = new Ultrasonic(Config.chanUltrasonicOut, Config.chanUltrasonicIn);
+        rangeFinder = new MyUltrasonic(Config.chanUltrasonic);
         encLeft = new Encoder(Config.chanEncLeftA, Config.chanEncLeftB);
         encRight = new Encoder(Config.chanEncRightA, Config.chanEncRightB);
         gyro = new Gyro(Config.chanGyro);
         
-        rangeFinder.setAutomaticMode(true);
         encLeft.reset();
         encLeft.start();
         encRight.reset();
@@ -64,6 +63,6 @@ public class Sensors
     
     public double getUltrasonicDist()
     {
-        return rangeFinder.getRangeInches();
+        return rangeFinder.getDistanceFeet();
     }
 }
