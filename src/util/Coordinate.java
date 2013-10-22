@@ -10,18 +10,18 @@ package util;
  *
  * @author Merfoo
  */
-public class Point 
+public class Coordinate 
 {
     private double x;
     private double y;
     
-    public Point(double newX, double newY)
+    public Coordinate(double newX, double newY)
     {
         x = newX;
         y = newY;
     }
     
-    public void setPoint(double newX, double newY)
+    public void setCoordinate(double newX, double newY)
     {
         x = newX;
         y = newY;
