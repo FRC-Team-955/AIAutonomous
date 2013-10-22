@@ -51,6 +51,13 @@ public class Config
         return Math.cos(Math.toRadians(theta));
     }
     
+    //TEMPORARY LOCATION:
+    public Coordinate update(Coordinate last, Coordinate curr)
+    {
+        Coordinate ret = new Coordinate(last.getX()+curr.getX(),last.getY()+curr.getY());
+        return ret;
+    }
+    
      /**
      * Gets the button status from the driverstation, 1 - 8 available.
      * @param iChan

@@ -8,7 +8,7 @@ package util;
 
 /**
  *
- * @author Merfoo
+ * @author Pedro, Fauzi
  */
 public class Vector 
 {
@@ -45,7 +45,7 @@ public class Vector
         else 
             signX = -1;
         
-        ret = new Coordinate(distance*Math.cos(theta)*signX, distance*Math.sin(theta)*signY);
+        ret = new Coordinate(distance*Config.cos(theta)*signX, distance*Config.sin(theta)*signY);
         return ret;
     }
     
