@@ -8,6 +8,7 @@ package util;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStationLCD;
+import com.sun.squawk.util.MathUtils;
 
 /**
  *
@@ -28,10 +29,12 @@ public class Config
     public static final int chanUltrasonic = 6;
     
     // Ints
-    public static final int iPs3Port = 1;
-    public static final int iPs3Buttons = 13;
+    public static final int ps3Port = 1;
+    public static final int ps3Buttons = 13;
     
-    // DriverStation Autonomous Button Channels
+    // DriverStation channels
+    public static final int stAnalogAutoX = 1;
+    public static final int stAnalogAutoY = 2;
     public static final int stDigInAutoCtr = 1;
     public static final int stDigInAutoLft = 2;
     public static final int stDigInAutoRght = 3;
@@ -43,12 +46,12 @@ public class Config
     
     public static double sin(double theta)
     {
-        return Math.sin(Math.toRadians(theta));
+        return Math.toDegrees(Math.sin(Math.toRadians(theta)));
     }
     
     public static double cos(double theta)
     {
-        return Math.cos(Math.toRadians(theta));
+        return Math.toDegrees(Math.cos(Math.toRadians(theta)));
     }
     
     public static double getDistance(Coordinate pointA, Coordinate pointB)
@@ -59,14 +62,20 @@ public class Config
         return Math.sqrt((x*x) + (y*y));
     }
     
-     /**
-     * Gets the button status from the driverstation, 1 - 8 available.
-     * @param iChan
-     * @return 
-     */
-    public static boolean StationGetDigitalIn(int iChan)
+    public static double getAngle(Coordinate start, Coordinate end)
     {
-        return DriverStation.getInstance().getDigitalIn(iChan);
+        double x = end.getX() - start.getX();
+        double y = end.getY() - start.getY();
+        
+        if(x == 0)
+        {
+            if(y > 0)
+                return 0.0;
+            
+            return -180.0;
+        }
+        
+        return Math.toDegrees(MathUtils.atan(y/x));
     }
     
     /**
@@ -75,65 +84,5 @@ public class Config
     public static double SetDoublePrecision(double dDouble)
     {
         return (Double.valueOf(Math.floor(dDouble * 10 + 0.5) / 10)).doubleValue();
-    }
-    
-    /**
-     * Prints specified message to the driver station on the corresponding line
-     * 1-6 are available.
-     */
-    public static void PrintToStation(int iLine, String sMessage)
-    {
-        switch(iLine)
-        {
-            case 1:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser1, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser1, 1, sMessage);
-                break;
-            }
-            
-            case 2:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser2, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser2, 1, sMessage);
-                break;
-            }
-                
-            case 3:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser3, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser3, 1, sMessage);
-                break;
-            }
-                
-            case 4:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser4, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser4, 1, sMessage);
-                break;
-            }
-                
-            case 5:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser5, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser5, 1, sMessage);
-                break;
-            }
-                
-            case 6:
-            {
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser6, 1, "                   ");
-                DriverStationLCD.getInstance().updateLCD(); 
-                DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser6, 1, sMessage);
-                break;
-            }
-        }
-        
-        DriverStationLCD.getInstance().updateLCD(); 
     }
 }

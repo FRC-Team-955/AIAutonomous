@@ -29,23 +29,18 @@ public class Vector
     
     public Coordinate getXY()
     {
-        int signX;
-        int signY;
-        Coordinate ret;
+        int signX = -1;
+        int signY = -1;
+        Coordinate ret = new Coordinate(distance*Config.cos(theta), distance*Config.sin(theta));
                
         if(Math.abs(theta)<90)
             signY = 1;
         
-        else
-            signY = -1;
-        
         if(theta/Math.abs(theta)==1)
             signX = 1;
         
-        else 
-            signX = -1;
         
-        ret = new Coordinate(distance*Config.cos(theta)*signX, distance*Config.sin(theta)*signY);
+        ret.setCoordinate(ret.getX()*signX, ret.getY()*signY);
         return ret;
     }
     
