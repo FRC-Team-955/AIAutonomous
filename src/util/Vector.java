@@ -21,6 +21,15 @@ public class Vector
         distance = newDist;
     }
     
+    public Vector(double initX, double initY, double finalX, double finalY)
+    {
+        Coordinate start = new Coordinate(initX, initY);
+        Coordinate end = new Coordinate(finalX, finalY);
+        
+        distance = MyMath.getDistance(start, end);
+        theta = MyMath.getAngle(start, end);
+    }
+    
     public void setVector(double newTheta, double newDist)
     {
         theta = newTheta;
@@ -31,7 +40,7 @@ public class Vector
     {
         int signX = -1;
         int signY = -1;
-        Coordinate ret = new Coordinate(distance*Config.cos(theta), distance*Config.sin(theta));
+        Coordinate ret = new Coordinate(distance*MyMath.cos(theta), distance*MyMath.sin(theta));
                
         if(Math.abs(theta)<90)
             signY = 1;

@@ -65,4 +65,10 @@ public class Sensors
     {
         return rangeFinder.getDistanceFeet();
     }
+    
+    // TODO: FIX THIS METHOD TO RETURN THE ROBOT VELOCITY CORRECTLY
+    public double getRobotVelocity()
+    {
+        return (encLeft.getRate() + encRight.getRate())/2;
+    }
 }
