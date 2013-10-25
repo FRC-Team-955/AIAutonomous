@@ -56,6 +56,11 @@ public class Sensors
         return encRight.getDistance();
     }
     
+    public double getBotDist()
+    {
+        return (getEncLeftDist() + getEncRightDist())/2;
+    }
+    
     public double getGyroTheta()
     {
         return gyro.getAngle();

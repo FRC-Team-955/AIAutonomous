@@ -28,23 +28,22 @@ public class Main extends IterativeRobot
      */
     
     MyJoystick joystick;
-    Drive driver;
+    Drive drive;
     Sensors sensors;
     Autonomous auto;
     
     public void robotInit() 
     {
         joystick = new MyJoystick(Config.ps3Port, Config.ps3Buttons);
-        driver = new Drive(joystick);
+        drive = new Drive(joystick);
         sensors = new Sensors();
-        auto = new Autonomous(sensors);
+        auto = new Autonomous(sensors, drive);
     }
 
 
     public void autonomousInit()
     {
-        auto.setStartPoint();
-        auto.setEndPoint();
+        auto.setUp();
     }
     
     /**
@@ -52,7 +51,7 @@ public class Main extends IterativeRobot
      */
     public void autonomousPeriodic() 
     {
-
+        auto.run();
     }
 
     /**
@@ -60,7 +59,7 @@ public class Main extends IterativeRobot
      */
     public void teleopPeriodic()
     {
-        driver.runArcade();
+        drive.runArcade();
     }
     
     /**

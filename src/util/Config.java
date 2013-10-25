@@ -12,9 +12,16 @@ package util;
  */
 public class Config 
 {
+    // Autonomous
     public static final Coordinate positMid = new Coordinate(0,0);
     public static final Coordinate positLeft = new Coordinate(-7, 0);
     public static final Coordinate positRigt = new Coordinate(7,0);
+    public static final double turnSpeed = 0.75;
+    public static final double angTolerance = 5.0;
+    public static final double driveSpeed = 0.75;
+    public static final double minDist = 5.0;
+    public static final double distConst = 2;
+    
     // PWM
     public static final int chanMotorLeft = 1;
     public static final int chanMotorRight = 2;
