@@ -24,56 +24,32 @@ import util.Vector;
  */
 public class Main extends IterativeRobot 
 {   
-    /**
-     * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     */
-    Vector v_path;
     Drive drive;
     MyGyro gyro;
-	Encoder enc_left;
-	Encoder enc_right;
-	MyUltrasonic usrf;
+    Encoder enc_left;
+    Encoder enc_right;
+    MyUltrasonic sonic;
+    
     public void robotInit() 
     {
-		drive = new Drive();
-		enc_left = new Encoder(5,4);
-		enc_right = new Encoder(9,10);
-		usrf = new MyUltrasonic(6);
+        enc_left = new Encoder(5,4);
+        enc_right = new Encoder(9,10);
+        sonic = new MyUltrasonic(6);
+        gyro = new MyGyro(8);
+        drive = new Drive(enc_left, enc_right, sonic, gyro);
     }
-
 
     public void autonomousInit()
     {
-		v_path = new Vector(Config.positMid, Config.dest);
-		enc_left.reset();
-		enc_right.reset();
-		gyro.reset();
+        drive.init();
     }
     
-    /**
-     * This function is called periodically during autonomous
-     */
     public void autonomousPeriodic() 
     {
-		enc_left.start();
-		enc_right.start();
+        drive.run();
     }
 	
-	public void disableInit() {
-		enc_left.reset();
-		enc_left.reset();
-		gyro.reset();
-	}
-	
-    /**
-     * This function is called periodically during operator control
-     */
     public void teleopPeriodic()
     {
     }
-    
-    /**
-     * This function is called periodically during test mode
-     */	
 }

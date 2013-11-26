@@ -16,7 +16,8 @@ public class Config
     public static final Coordinate positMid = new Coordinate(0,0);
     public static final Coordinate positLeft = new Coordinate(-7, 0);
     public static final Coordinate positRigt = new Coordinate(7,0);
-	public static final Coordinate dest = new Coordinate (0,0);
+    public static final Coordinate dest = new Coordinate (0,0);
+    //not for vector auto?
     public static final double turnSpeed = 0.75;
     public static final double angTolerance = 5.0;
     public static final double driveSpeed = 0.75;
@@ -52,4 +53,6 @@ public class Config
     // Driverstation line
     public static final int stLineFile = 2;
     public static final int stLineAutonomous = 3; 
+    
+    public static final double outerArc = 11.5*Math.PI;
 }

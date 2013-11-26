@@ -8,7 +8,7 @@ package util;
 
 /**
  *
- * @author Merfoo
+ * @author Pedro
  */
 public class Coordinate 
 {
@@ -21,7 +21,7 @@ public class Coordinate
         y = newY;
     }
     
-    public void setCoordinate(double newX, double newY)
+    public void setXY(double newX, double newY)
     {
         x = newX;
         y = newY;

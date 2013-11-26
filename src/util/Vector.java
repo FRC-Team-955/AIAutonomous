@@ -8,17 +8,17 @@ package util;
 
 /**
  *
- * @author Pedro, Fauzi
+ * @author Pedro
  */
 public class Vector 
 {
     private double theta;
     private double distance;
     
-    public Vector(double newTheta, double newDist)
+    public Vector(double theta, double distance)
     {
-        theta = newTheta;
-        distance = newDist;
+        this.theta = theta;
+        this.distance = distance;
     }
     
     public Vector(double initX, double initY, double finalX, double finalY)
@@ -30,10 +30,11 @@ public class Vector
         theta = MyMath.getAngle(start, end);
     }
     
-	public Vector(Coordinate init, Coordinate dest) {
-		distance = MyMath.getDistance(init, dest);
-		theta = MyMath.getAngle(init, dest);
-	}
+    public Vector(Coordinate init, Coordinate dest) {
+        distance = MyMath.getDistance(init, dest);
+        theta = MyMath.getAngle(init, dest);
+    }
+    
     public void setVector(double newTheta, double newDist)
     {
         theta = newTheta;
@@ -53,7 +54,7 @@ public class Vector
             signX = 1;
         
         
-        ret.setCoordinate(ret.getX()*signX, ret.getY()*signY);
+        ret.setXY(ret.getX()*signX, ret.getY()*signY);
         return ret;
     }
     
