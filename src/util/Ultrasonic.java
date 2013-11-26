@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj.AnalogChannel;
  *
  * @author Pedro
  */
-public class MyUltrasonic extends AnalogChannel 
+public class Ultrasonic extends AnalogChannel 
 {
     // Converts mV/mm scale factor from EZ0 datasheet to In/V
     private final double scalar = (1000/.997)/25.4/12; // 0.997mV/mm
     
-    public MyUltrasonic(int channel)
+    public Ultrasonic(int channel)
     {
         super(channel);
     }

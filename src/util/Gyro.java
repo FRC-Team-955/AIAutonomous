@@ -4,14 +4,14 @@
  */
 package util;
 
-import edu.wpi.first.wpilibj.Gyro;
+
 
 /**
  *
  * @author Pedro
  */
-public class MyGyro extends Gyro {
-    public MyGyro(int channel) {
+public class Gyro extends edu.wpi.first.wpilibj.Gyro {
+    public Gyro(int channel) {
         super(channel);
     }
     

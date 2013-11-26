@@ -9,8 +9,8 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
 import util.Config;
 import util.Coordinate;
-import util.MyGyro;
-import util.MyUltrasonic;
+import util.Gyro;
+import util.Ultrasonic;
 import util.Vector;
 
 /**
@@ -24,11 +24,11 @@ public class Drive
     private int turns_l, turns_r;
     private Encoder enc_left, enc_right;  
     private Talon motorLeft, motorRight;
-    private MyUltrasonic sonic;
-    private MyGyro gyro;
+    private Ultrasonic sonic;
+    private Gyro gyro;
     public Vector v_path;
 			
-    public Drive(Encoder left, Encoder right, MyUltrasonic sonic, MyGyro gyro)
+    public Drive(Encoder left, Encoder right, Ultrasonic sonic, Gyro gyro)
     {
         motorLeft = new Talon(Config.chanMotorLeft);
         motorRight = new Talon(Config.chanMotorRight);
