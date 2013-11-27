@@ -5,9 +5,11 @@
  */
 
 package core;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
-import util.MyJoystick;
 import util.Config;
+import util.Coordinate;
+import util.Vector;
 
 /**
  *
@@ -15,29 +17,18 @@ import util.Config;
  */
 public class Drive 
 {
-    private MyJoystick joy;
     private double motorLeftSpeed;
     private double motorRightSpeed;
     private Talon motorLeft;
     private Talon motorRight;
-    
-    public Drive(MyJoystick stick)
+    public Vector destination;
+			
+    public Drive()
     {
-        joy = stick;
         motorLeft = new Talon(Config.chanMotorLeft);
         motorRight = new Talon(Config.chanMotorRight);
     }
-    
-    public void runArcade()
-    {
-        double joyX = joy.getX()*Math.abs(joy.getX());
-        double joyY = joy.getY()*Math.abs(joy.getY());
-        
-        motorLeftSpeed = joyY+joyX;
-        motorRightSpeed = joyY-joyX;
-        setSpeed(motorLeftSpeed, motorRightSpeed);
-    }
-    
+	
     public void setSpeed(double left, double right)
     {
         motorLeft.set(left);

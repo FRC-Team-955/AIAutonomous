@@ -14,16 +14,6 @@ import com.sun.squawk.util.MathUtils;
  */
 public class MyMath 
 {
-    public static double sin(double theta)
-    {
-        return Math.toDegrees(Math.sin(Math.toRadians(theta)));
-    }
-    
-    public static double cos(double theta)
-    {
-        return Math.toDegrees(Math.cos(Math.toRadians(theta)));
-    }
-    
     public static double SetDoublePrecision(double dDouble)
     {
         return (Double.valueOf(Math.floor(dDouble * 10 + 0.5) / 10)).doubleValue();
@@ -51,6 +41,6 @@ public class MyMath
             return -180.0;
         }
         
-        return Math.toDegrees(MathUtils.atan(y/x));
+        return MathUtils.atan(y/x);
     }
 }
